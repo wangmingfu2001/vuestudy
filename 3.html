@@ -10,7 +10,6 @@
 
 <style type="text/css">
 	*{margin:0;padding:0; list-style:none}
-
 </style>
 <script type="text/javascript" src="vue.js"></script>
 </head>
@@ -18,34 +17,31 @@
 <body>
 <div id="demo">
 	<h1>{{msg}}</h1>
-	<input v-model="msg" />
+	<input v-model="msg"  />
+	<ul>
+		<li v-for="n in news" v-on:click="reverseMessage">
+			{{n}}
+		</li>
+	</ul>
 </div>
 </body>
-
 </html>
-
 
 <script type="text/javascript">
 	var vm1 = new Vue({
 		el : '#demo',
 		data : {
-			msg : 'hello world!'
+			msg : 'hello world!',
+			news : [
+				'数据一',
+				'数据二',
+				'数据三'
+			]
+		},
+		methods : {
+			reverseMessage : function(){
+				console.log(this);
+			}
 		}
 	});
-	console.log(vm1.$data.msg);
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

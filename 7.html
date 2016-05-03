@@ -2,50 +2,43 @@
 <html>
 <head>
 <meta charset="GBK" />
-<title>vueDemo1</title>
-<meta name="keywords" content="H5" />
-<meta name="description" content="H5" />
+<title>vueDemo5</title>
 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 
 <style type="text/css">
 	*{margin:0;padding:0; list-style:none}
-
 </style>
 <script type="text/javascript" src="vue.js"></script>
 </head>
 
 <body>
-<div id="demo">
-	<h1>{{msg}}</h1>
-	<input v-model="msg" />
+<div id="example">
+	
+	<com>{{msg}}</com>
 </div>
 </body>
-
 </html>
 
-
 <script type="text/javascript">
-	var vm1 = new Vue({
-		el : '#demo',
-		data : {
-			msg : 'hello world!'
-		}
+	var component1 = Vue.extend({
+		template : '<h1>hello world</h1>'
 	});
-	console.log(vm1.$data.msg);
+	
+	//Vue.component('com',component1);  //全局注册
+
+	var vm1 = new Vue({
+		el : '#example',
+		data : {
+			msg : 'helo'	
+			
+		},
+		//局部注册组件
+		components : {
+			com : component1
+		}
+		
+	});
+
+
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

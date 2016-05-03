@@ -19,20 +19,26 @@
 <div id="demo">
 	<h1>{{msg}}</h1>
 	<input v-model="msg" />
+	<ul>
+		<li v-for="n in news">
+			{{n.title}}
+		</li>
+	</ul>
 </div>
 </body>
-
 </html>
-
 
 <script type="text/javascript">
 	var vm1 = new Vue({
 		el : '#demo',
 		data : {
-			msg : 'hello world!'
+			msg : 'hello world!',
+			news : [
+				{title:'ÄãºÃ°¡'},
+				{title:'hello°¡'}
+			]
 		}
 	});
-	console.log(vm1.$data.msg);
 </script>
 
 

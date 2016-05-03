@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="GBK" />
+<title>vueDemo4</title>
+<meta name="keywords" content="H5" />
+<meta name="description" content="H5" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+
+<style type="text/css">
+	*{margin:0;padding:0; list-style:none}
+</style>
+<script type="text/javascript" src="vue.js"></script>
+</head>
+
+<body>
+<div id="demo">
+	<input v-model="newTo" v-on:keyup.enter="addTo"  />
+	<ul>
+		<li v-for="n in tags">
+			<span v-if="n.text">{{n.text}}</span>
+			<button v-on:click="removeTo($index)">x</button>
+		</li>
+	</ul>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	var vm1 = new Vue({
+		el : '#demo',
+		data : {
+			newTo : '',
+			tags : [
+				{text: '数据一'},
+				{text: '数据二'}
+			]
+		},
+		methods : {
+			addTo : function(){
+				var text = this.newTo.trim();
+				if(text){
+					this.tags.push({text:text});
+					this.newTo = '';	
+				}
+			},
+			removeTo : function(index){
+				this.tags.splice(index , 1);
+			}
+		}
+	});
+</script>
